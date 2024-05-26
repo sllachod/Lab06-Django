@@ -10,8 +10,8 @@ def crear_alumno(request):
             return redirect('lista_alumnos')
     else:
         form = AlumnoForm()
-    return render(request, 'registros/crear_alumno.html', {'form': form})
+    return render(request, 'registroCurso/crear_alumno.html', {'form': form})
 
 def lista_alumnos(request):
     alumnos = Alumno.objects.all()
-    return render(request, 'registros/lista_alumnos.html', {'alumnos': alumnos})
+    return render(request, 'registroCurso/lista_alumnos.html', {'alumnos': alumnos})
