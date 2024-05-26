@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crear Nota</title>
+</head>
+<body>
+    <h1>Crear Nota</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <label for="id_alumno">Alumno:</label>
+            <select name="alumno" id="id_alumno" required>
+                <option value="" selected>---------</option>
+                {% for alumno in form.fields.alumno.queryset %}
+                    <option value="{{ alumno.id }}">{{ alumno.nombre }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label for="id_curso">Curso:</label>
+            <select name="curso" id="id_curso" required>
+                <option value="" selected>---------</option>
+                {% for curso in form.fields.curso.queryset %}
+                    <option value="{{ curso.id }}">{{ curso.nombre }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label for="id_nota">Nota:</label>
+            {{ form.nota }}
+        </div>
+        <button type="submit">Guardar Nota</button>
+    </form>
+    <a href="{% url 'lista_notas_alumno' %}">Revisar Notas</a>
+</body>
+</html>

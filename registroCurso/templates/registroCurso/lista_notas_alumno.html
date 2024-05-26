@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Notas por Alumno</title>
+</head>
+<body>
+    <h1>Lista de Notas por Alumno</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Alumno</th>
+                <th>Curso</th>
+                <th>Nota</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for nota in notas %}
+                <tr>
+                    <td>{{ nota.alumno.nombre }}</td>
+                    <td>{{ nota.curso.nombre }}</td>
+                    <td>{{ nota.nota }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'crear_nota' %}">Ingresar Nueva Nota</a>
+</body>
+</html>
